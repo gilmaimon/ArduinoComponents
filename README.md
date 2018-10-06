@@ -6,7 +6,7 @@ Components is a project that aims to help electronics hobbyists to write code fo
 - **Extendable** - Make your own (hardware independent) components and use base components from the library
 - **Testable** - Centralize Platform dependent code and test components individually
 
-
+<br />
 ![Structure](https://github.com/gilmaimon/ArduinoComponents/blob/master/Components.png)
 
 ## Project Structure
