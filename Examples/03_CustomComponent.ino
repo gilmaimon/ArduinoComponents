@@ -11,7 +11,7 @@ public:
 	ButtonToggledLED(PinNumber buttonPin, PinNumber ledPin) : 
 		BaseComponent(), 
 		led(ledPin, State::State_Low), 
-		button(buttonPin, InputPull::InputPull_Up) {
+		button(buttonPin, TriggerOn::Low, InputPull::Up) {
 
 		// When we register a components as a child, it's loop is called every time our loop is called
 		// So instead of us needing to call it's loop, it is called automaticaly and the object 

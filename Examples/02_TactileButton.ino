@@ -6,8 +6,8 @@
 #include "Componenets/TactileButton.h"
 #include "Componenets/LED.h"
 
-#define BTN_PIN 3
-#define LED_PIN LED_BUILTIN
+#define BTN_PIN 8
+#define LED_PIN 13
 
 // ** Can also be initialized with DigitalInput:
 // TactileButton button(DigitalInput(BTN_PIN, InputPull::InputPull_Up))

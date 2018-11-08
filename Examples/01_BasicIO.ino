@@ -9,7 +9,7 @@
 #define LED_PIN 13
 
 // Initialize an input object for the button that is pulled to high
-DigitalInput button(BTN_PIN, InputPull::InputPull_Up);
+DigitalInput button(BTN_PIN, InputPull::Up);
 DigitalOutput led(LED_PIN);
 
 void setup() {}
