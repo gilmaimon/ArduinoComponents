@@ -2,17 +2,18 @@
 //#define BLINK_IS_MAIN
 #ifdef BLINK_IS_MAIN
 
+#include "IO/IO.h"
 #include "IO/DigitalOutput.h"
 
-DigitalOutput led(LED_BUILTIN);
+DigitalOutput led(13);
 
 void setup() {}
 
 void loop() {
 	led.high();
-	delay(1000);
+	millisDelay(1000);
 	led.low();
-	delay(1000);
+	millisDelay(1000);
 }
 
 #endif

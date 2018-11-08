@@ -4,3 +4,7 @@
 unsigned long millisTime() {
 	return millis();
 }
+
+void millisDelay(unsigned millis) {
+	delay(millis);
+}

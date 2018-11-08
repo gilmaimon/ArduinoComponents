@@ -22,7 +22,7 @@ void setup() {
 		// Led stores its state internally, so it can be toggled
 		led.toggle();
 		// delay to ignore button debounces
-		delay(50);
+		millisDelay(50);
 	});
 }
 

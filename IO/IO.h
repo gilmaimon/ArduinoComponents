@@ -28,5 +28,6 @@ enum class InputPull {
 };
 
 unsigned long millisTime();
+void millisDelay(unsigned millis);
 
 #endif /* IO_H_ */
