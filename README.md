@@ -74,24 +74,24 @@ This example uses `DigitalInput` and `DigitalOutput` to light up an LED when a b
 
 ```c++
 // Initialize an input object for the button that is pulled to high
-DigitalInput button(BTN_PIN, InputPull::InputPull_Up);
+DigitalInput button(BTN_PIN, InputPull::Up);
 DigitalOutput led(LED_PIN);
 
 void setup() {}
 
 bool isButtonPressed() {
-    // Button pin is normally high (because it is pulled up)
-    // When the button is pressed, reading will be low (Ground)
-    return button.isLow();
+	// Button pin is normally high (because it is pulled up)
+	// When the button is pressed, reading will be low (Ground)
+	return button.isLow();
 }
 
 // The led will be on when the button is pressed
 void loop() {
-    if(isButtonPressed()) {
-        led.high();
-    } else {
-        led.low();
-    }
+	if(isButtonPressed()) {
+		led.high();
+	} else {
+		led.low();
+	}
 }
 ```
 
@@ -101,24 +101,24 @@ This example shows how to use "Higher Level" components such as `LED` and `Tacti
 ```c++
 // ** Can also be initialized with DigitalInput:
 // TactileButton button(DigitalInput(BTN_PIN, InputPull::InputPull_Up))
-TactileButton button(BTN_PIN, InputPull::InputPull_Up);
+TactileButton button(BTN_PIN, TriggerOn::Low, InputPull::Up);
 LED led(LED_PIN);
 
 void setup() {
-    led.off();
+	led.off();
 
-    // Register a callback for the onRelease event
-    button.onRelease([&led](){
-        // Led stores its state internally, so it can be toggled
-        led.toggle();
-        // delay to ignore button debounces
-        delay(50);
-    });
+	// Register a callback for the onRelease event
+	button.onRelease([&led](){
+		// Led stores its state internally, so it can be toggled
+		led.toggle();
+		// delay to ignore button debounces
+		delay(50);
+	});
 }
 
 void loop() {
-    // we call loop() on button so it can proccess physical input and call our callbacks
-    button.loop();
+	// we call loop() on button so it can proccess phsical input and call our callbacks
+	button.loop();
 }
 ```
 
@@ -127,34 +127,34 @@ This example is a bit more advanced. It shows a way to create a custom component
 ```c++
 class ButtonToggledLED : public BaseComponent {
 public:
-    ButtonToggledLED(PinNumber buttonPin, PinNumber ledPin) : 
-        BaseComponent(), 
-        led(ledPin, State::State_Low), 
-        button(buttonPin, InputPull::InputPull_Up) {
+	ButtonToggledLED(PinNumber buttonPin, PinNumber ledPin) : 
+		BaseComponent(), 
+		led(ledPin, State::State_Low), 
+		button(buttonPin, TriggerOn::Low, InputPull::Up) {
 
-        // When we register a component as a child, it's loop is called every time our loop is called
-        // So instead of us needing to call it's loop, it is called automaticaly and the object 
-        // is ready to use and read when execution arrives to this->privateLoop
-        RegisterChild(button);
-        
-        // Register a callback for the onRelease event
-        button.onRelease([&](){
-            // Led stores its state internally, so it can be toggled
-            led.toggle();
-            // delay to ignore button debounces
-            delay(50);
-        });
-    }
+		// When we register a components as a child, it's loop is called every time our loop is called
+		// So instead of us needing to call it's loop, it is called automaticaly and the object 
+		// is ready to use and read when execution arrives to this->privateLoop
+		RegisterChild(button);
+		
+		// Register a callback for the onRelease event
+		button.onRelease([&](){
+			// Led stores its state internally, so it can be toggled
+			led.toggle();
+			// delay to ignore button debounces
+			delay(50);
+		});
+	}
 
 private:
-    TactileButton button;
-    LED led;
+	TactileButton button;
+	LED led;
 
-    void privateLoop() {
-        // By the time this function is called, `button`'s loop had already been executed
-        // and onRelease was called (if the button was actually released), so there is no
-        // work to be done in this function.
-    }
+	void privateLoop() {
+		// By the time this function is called, `button`'s loop had already been executed
+		// and onRelease was called (if the button was actually released), so there is no
+		// work to be done in this function.
+	}
 };
 
 #define BTN_PIN 8
@@ -164,6 +164,6 @@ ButtonToggledLED app(BTN_PIN, LED_PIN);
 void setup() {}
 
 void loop() {
-    app.loop();
+	app.loop();
 }
 ```
