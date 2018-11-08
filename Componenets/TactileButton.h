@@ -8,10 +8,10 @@
 
 class TactileButton : public BaseComponent {
 public:
-	TactileButton(DigitalInput input) : TactileButton(nullptr, input) {}
-	TactileButton(Ref<BaseComponent> parent, DigitalInput input);
-	TactileButton(PinNumber pin, InputPull pull) : TactileButton(nullptr, pin, pull) {}
-	TactileButton(Ref<BaseComponent> parent, PinNumber pin, InputPull pull);
+	TactileButton(DigitalInput input, TriggerOn trigger) : TactileButton(nullptr, input, trigger) {}
+	TactileButton(Ref<BaseComponent> parent, DigitalInput input, TriggerOn trigger);
+	TactileButton(PinNumber pin, TriggerOn trigger, InputPull pull = InputPull::None) : TactileButton(nullptr, pin, trigger, pull) {}
+	TactileButton(Ref<BaseComponent> parent, PinNumber pin, TriggerOn trigger, InputPull pull = InputPull::None);
 
 	void onPress(VoidCallback cbk);
 	void onRelease(VoidCallback cbk);
@@ -21,6 +21,7 @@ private:
 	bool _pressed;
 	VoidCallback _on_press;
 	VoidCallback _on_release;
+	TriggerOn trigger;
 
 	void privateLoop();
 };

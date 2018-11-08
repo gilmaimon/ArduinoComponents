@@ -16,10 +16,15 @@ enum State : bool {
 	State_Low = false
 };
 
-enum InputPull {
-	InputPull_None,
-	InputPull_Up,
-	InputPull_Down,
+enum class TriggerOn {
+	High,
+	Low
+};
+
+enum class InputPull {
+	None,
+	Up,
+	Down,
 };
 
 unsigned long millisTime();

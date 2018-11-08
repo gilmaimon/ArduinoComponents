@@ -1,17 +1,17 @@
 // Note: Uncomment next line to set this file as main
-#define TACTILE_BUTTON_IS_MAIN
+//#define TACTILE_BUTTON_IS_MAIN
 #ifdef TACTILE_BUTTON_IS_MAIN
 
 #include "IO/IOComponents.h"
 #include "Componenets/TactileButton.h"
 #include "Componenets/LED.h"
 
-#define BTN_PIN 8
-#define LED_PIN 13
+#define BTN_PIN 3
+#define LED_PIN LED_BUILTIN
 
 // ** Can also be initialized with DigitalInput:
 // TactileButton button(DigitalInput(BTN_PIN, InputPull::InputPull_Up))
-TactileButton button(BTN_PIN, InputPull::InputPull_Up);
+TactileButton button(BTN_PIN, TriggerOn::Low, InputPull::Up);
 LED led(LED_PIN);
 
 void setup() {
