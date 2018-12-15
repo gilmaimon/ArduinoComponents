@@ -1,10 +1,6 @@
-// Note: Uncomment next line to set this file as main
-//#define CUSTOM_COMPONENT_IS_MAIN
-#ifdef CUSTOM_COMPONENT_IS_MAIN
-
-#include "IO/IOComponents.h"
-#include "Componenets/TactileButton.h"
-#include "Componenets/LED.h"
+#include <ArduinoComponents.h>
+#include <ArduinoComponents/Componenets/TactileButton.h>
+#include <ArduinoComponents/Componenets/LED.h>
 
 class ButtonToggledLED : public BaseComponent {
 public:
@@ -47,5 +43,3 @@ void setup() {}
 void loop() {
 	app.loop();
 }
-
-#endif

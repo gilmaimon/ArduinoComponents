@@ -1,10 +1,6 @@
-// Note: Uncomment next line to set this file as main
-//#define TACTILE_BUTTON_IS_MAIN
-#ifdef TACTILE_BUTTON_IS_MAIN
-
-#include "IO/IOComponents.h"
-#include "Componenets/TactileButton.h"
-#include "Componenets/LED.h"
+#include <ArduinoComponents.h>
+#include <ArduinoComponents/Componenets/TactileButton.h>
+#include <ArduinoComponents/Componenets/LED.h>
 
 #define BTN_PIN 8
 #define LED_PIN 13
@@ -30,6 +26,3 @@ void loop() {
 	// we call loop() on button so it can proccess phsical input and call our callbacks
 	button.loop();
 }
-
-
-#endif

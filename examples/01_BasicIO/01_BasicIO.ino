@@ -1,9 +1,4 @@
-// Note: Uncomment next line to set this file as main
-//#define BASIC_IO_IS_MAIN
-#ifdef BASIC_IO_IS_MAIN
-
-#include "IO/DigitalInput.h"
-#include "IO/DigitalOutput.h"
+#include <ArduinoComponents.h>
 
 #define BTN_PIN 8
 #define LED_PIN 13
@@ -28,5 +23,3 @@ void loop() {
 		led.low();
 	}
 }
-
-#endif

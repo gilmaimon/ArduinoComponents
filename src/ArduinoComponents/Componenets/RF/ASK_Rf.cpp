@@ -10,14 +10,6 @@ ASK_Rf::ASK_Rf(Ref<BaseComponent> parent, uint16_t speed, uint8_t rxPin, uint8_t
 }
 
 bool ASK_Rf::send(Message& msg) {
-	/*Serial.print("Sending: ");
-	Serial.print((char*) msg.data);
-	Serial.print(" ");
-	Serial.println(msg.len);
-
-	bool result = _driver.send(msg.data, msg.len);
-	_driver.waitPacketSent();
-	return result;*/
 	_driver.send(msg.data, msg.len);
 	_driver.waitPacketSent();
 	return true;
