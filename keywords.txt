@@ -3,69 +3,72 @@
 #######################################
 
 AnalogInput	KEYWORD1
-AnalogOutput    KEYWORD1
+AnalogOutput	KEYWORD1
 DigitalInput	KEYWORD1
 DigitalOutput	KEYWORD1
-State   KEYWORD1
-TriggerOn   KEYWORD1
-InputPull   KEYWORD1
-BaseComponent   KEYWORD1
+State	KEYWORD1
+TriggerOn	KEYWORD1
+InputPull	KEYWORD1
+BaseComponent	KEYWORD1
+PinNumber	KEYWORD1
+CloudStore	KEYWORD1
+Components	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-write   KEYWORD2
-read    KEYWORD2
-isHigh  KEYWORD2
-isLow   KEYWORD2
-high    KEYWORD2
-low KEYWORD2
+write	KEYWORD2
+read	KEYWORD2
+isHigh	KEYWORD2
+isLow	KEYWORD2
+high	KEYWORD2
+low	KEYWORD2
 
-millisTime  KEYWORD2
-millisDelay KEYWORD2
+millisTime	KEYWORD2
+millisDelay	KEYWORD2
 
-loop    KEYWORD2
-SkipLoop    KEYWORD2
-RegisterChild   KEYWORD2
+loop	KEYWORD2
+SkipLoop	KEYWORD2
+RegisterChild	KEYWORD2
 
 #######################################
 # Literals (LITERAL1)
 #######################################
 
-State_High  LITERAL1
-State_Low   LITERAL1
-High    LITERAL1
-Low LITERAL1
-None    LITERAL1
-Up  LITERAL1
-Down    LITERAL1
+State_High	LITERAL1
+State_Low	LITERAL1
+High	LITERAL1
+Low	LITERAL1
+None	LITERAL1
+Up	LITERAL1
+Down	LITERAL1
 
 
 ### Helpers
 
-Function    KEYWORD1
-Ref KEYWORD1
-TimedDispatch   KEYWORD1
-UniquePtr   KEYWORD1
-Vector  KEYWORD1
-VoidCallback  KEYWORD1
-LED KEYWORD1
-TactileButton   KEYWORD1
+Function	KEYWORD1
+Ref	KEYWORD1
+TimedDispatch	KEYWORD1
+UniquePtr	KEYWORD1
+Vector	KEYWORD1
+VoidCallback	KEYWORD1
+LED	KEYWORD1
+TactileButton	KEYWORD1
 
-disptach_delayed    KEYWORD2
-cancel  KEYWORD2
-privateLoop KEYWORD2
-push    KEYWORD2
-pop KEYWORD2
-get KEYWORD2
-size    KEYWORD2
-empty   KEYWORD2
-on  KEYWORD2
-off KEYWORD2
-toggle  KEYWORD2
-set KEYWORD2
-isOn    KEYWORD2
+disptach_delayed	KEYWORD2
+cancel	KEYWORD2
+privateLoop	KEYWORD2
+push	KEYWORD2
+pop	KEYWORD2
+get	KEYWORD2
+size	KEYWORD2
+empty	KEYWORD2
+on	KEYWORD2
+off	KEYWORD2
+toggle	KEYWORD2
+set	KEYWORD2
+isOn	KEYWORD2
 
-onPress KEYWORD2
-onRelease   KEYWORD2
+onPress	KEYWORD2
+onRelease	KEYWORD2
