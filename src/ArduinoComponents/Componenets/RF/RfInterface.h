@@ -2,6 +2,7 @@
 #define RFINTERFACE_H_
 
 #include <stdint.h>
+#include <string.h>
 #include "../../Helpers/Function.h"
 #include "../../Helpers/Vector.h"
 
