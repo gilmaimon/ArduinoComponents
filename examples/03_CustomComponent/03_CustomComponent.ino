@@ -2,6 +2,8 @@
 #include <ArduinoComponents/Componenets/TactileButton.h>
 #include <ArduinoComponents/Componenets/LED.h>
 
+using namespace components;
+
 class ButtonToggledLED : public BaseComponent {
 public:
 	ButtonToggledLED(PinNumber buttonPin, PinNumber ledPin) : 

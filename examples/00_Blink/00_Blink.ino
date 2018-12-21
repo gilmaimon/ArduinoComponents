@@ -1,5 +1,7 @@
 #include <ArduinoComponents.h>
 
+using namespace components;
+
 DigitalOutput led(13);
 
 void setup() {}

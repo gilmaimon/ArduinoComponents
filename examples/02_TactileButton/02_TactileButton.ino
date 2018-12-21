@@ -2,6 +2,8 @@
 #include <ArduinoComponents/Componenets/TactileButton.h>
 #include <ArduinoComponents/Componenets/LED.h>
 
+using namespace components;
+
 #define BTN_PIN 8
 #define LED_PIN 13
 

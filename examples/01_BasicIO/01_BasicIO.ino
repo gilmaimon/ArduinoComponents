@@ -1,5 +1,7 @@
 #include <ArduinoComponents.h>
 
+using namespace components;
+
 #define BTN_PIN 8
 #define LED_PIN 13
 
