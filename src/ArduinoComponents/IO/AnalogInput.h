@@ -4,11 +4,12 @@
 #include "IO.h"
 #include "DigitalInput.h"
 
-class AnalogInput : public DigitalInput {
-public:
-	AnalogInput(PinNumber, InputPull);
-	AnalogInput(PinNumber);
-	float read();
+namespace components {
+	class AnalogInput : public DigitalInput {
+	public:
+		AnalogInput(PinNumber, InputPull);
+		AnalogInput(PinNumber);
+		float read();
+	};
 };
-
 #endif

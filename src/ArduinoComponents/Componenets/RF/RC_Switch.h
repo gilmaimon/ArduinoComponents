@@ -5,41 +5,43 @@
 #include "../BaseComponent.h"
 #include "../../Helpers/Function.h"
 
-class RC_Switch : public BaseComponent {
-public:
-	enum class MODE {
-		MODE_Reciever, Mode_transmitter
+namespace components {
+	class RC_Switch : public BaseComponent {
+	public:
+		enum class MODE {
+			MODE_Reciever, Mode_transmitter
+		};
+		RC_Switch(int pin, MODE mode) : BaseComponent(nullptr), codeCallback([](int code){}) {
+			if(mode == MODE::MODE_Reciever) {
+				mySwitch.enableReceive(pin);
+			} else {
+				mySwitch.enableTransmit(pin);
+			}
+		}
+
+		void onCode(Function<void(int)> callback) {
+			codeCallback = callback;
+		}
+
+		void send(int code) {
+			mySwitch.send(code, 24);
+		}
+
+		~RC_Switch() {}
+
+	private:
+		RCSwitch mySwitch;
+		Function<void(int)> codeCallback;
+		
+		void privateLoop() {
+			if (mySwitch.available()) {
+				int value = mySwitch.getReceivedValue();
+				if (value == 0)	return;
+				codeCallback(value);
+				mySwitch.resetAvailable();
+			}
+		}
 	};
-	RC_Switch(int pin, MODE mode) : BaseComponent(nullptr), codeCallback([](int code){}) {
-		if(mode == MODE::MODE_Reciever) {
-			mySwitch.enableReceive(pin);
-		} else {
-			mySwitch.enableTransmit(pin);
-		}
-	}
-
-	void onCode(Function<void(int)> callback) {
-		codeCallback = callback;
-	}
-
-	void send(int code) {
-		mySwitch.send(code, 24);
-	}
-
-	~RC_Switch() {}
-
-private:
-	RCSwitch mySwitch;
-	Function<void(int)> codeCallback;
-	
-	void privateLoop() {
-		if (mySwitch.available()) {
-			int value = mySwitch.getReceivedValue();
-			if (value == 0)	return;
-			codeCallback(value);
-			mySwitch.resetAvailable();
-		}
-	}
 };
 
 #endif

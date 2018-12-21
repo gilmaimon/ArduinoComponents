@@ -3,12 +3,14 @@
 
 #include "IO.h"
 
-class DigitalInput : public IO_Pin {
-public:
-	DigitalInput(PinNumber, InputPull);
-	DigitalInput(PinNumber);
-	bool isHigh();
-	bool isLow();
+namespace components {
+	class DigitalInput : public IO_Pin {
+	public:
+		DigitalInput(PinNumber, InputPull);
+		DigitalInput(PinNumber);
+		bool isHigh();
+		bool isLow();
+	};
 };
 
 #endif

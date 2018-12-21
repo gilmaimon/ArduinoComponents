@@ -6,23 +6,25 @@
 #include "../Helpers/VoidCallback.h"
 #include "BaseComponent.h"
 
-class TactileButton : public BaseComponent {
-public:
-	TactileButton(DigitalInput input, TriggerOn trigger) : TactileButton(nullptr, input, trigger) {}
-	TactileButton(Ref<BaseComponent> parent, DigitalInput input, TriggerOn trigger);
-	TactileButton(PinNumber pin, TriggerOn trigger, InputPull pull = InputPull::None) : TactileButton(nullptr, pin, trigger, pull) {}
-	TactileButton(Ref<BaseComponent> parent, PinNumber pin, TriggerOn trigger, InputPull pull = InputPull::None);
+namespace components {
+	class TactileButton : public BaseComponent {
+	public:
+		TactileButton(DigitalInput input, TriggerOn trigger) : TactileButton(nullptr, input, trigger) {}
+		TactileButton(Ref<BaseComponent> parent, DigitalInput input, TriggerOn trigger);
+		TactileButton(PinNumber pin, TriggerOn trigger, InputPull pull = InputPull::None) : TactileButton(nullptr, pin, trigger, pull) {}
+		TactileButton(Ref<BaseComponent> parent, PinNumber pin, TriggerOn trigger, InputPull pull = InputPull::None);
 
-	void onPress(VoidCallback cbk);
-	void onRelease(VoidCallback cbk);
-	
-private:
-	DigitalInput _input;
-	bool _pressed;
-	VoidCallback _on_press;
-	VoidCallback _on_release;
-	TriggerOn trigger;
+		void onPress(VoidCallback cbk);
+		void onRelease(VoidCallback cbk);
+		
+	private:
+		DigitalInput _input;
+		bool _pressed;
+		VoidCallback _on_press;
+		VoidCallback _on_release;
+		TriggerOn trigger;
 
-	void privateLoop();
+		void privateLoop();
+	};
 };
 #endif

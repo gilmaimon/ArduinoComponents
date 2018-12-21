@@ -1,10 +1,12 @@
 #include "IO.h"
 #include "Arduino.h"
 
-unsigned long millisTime() {
-	return millis();
-}
+namespace components {
+	unsigned long millisTime() {
+		return millis();
+	}
 
-void millisDelay(unsigned millis) {
-	delay(millis);
-}
+	void millisDelay(unsigned millis) {
+		delay(millis);
+	}
+};

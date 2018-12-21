@@ -4,21 +4,22 @@
 #include "VoidCallback.h"
 #include "../Componenets/BaseComponent.h"
 
-class TimedDispatch : public BaseComponent {
-public:
-	TimedDispatch(VoidCallback callback) : TimedDispatch(nullptr, callback) {}
-	TimedDispatch(Ref<BaseComponent> parent, VoidCallback callback);
-	void disptach_delayed(unsigned long delay);
-	void cancel();
+namespace components {
+	class TimedDispatch : public BaseComponent {
+	public:
+		TimedDispatch(VoidCallback callback) : TimedDispatch(nullptr, callback) {}
+		TimedDispatch(Ref<BaseComponent> parent, VoidCallback callback);
+		void disptach_delayed(unsigned long delay);
+		void cancel();
 
-private:
-	void privateLoop();
+	private:
+		void privateLoop();
 
-	VoidCallback timeoutCallback;
-	unsigned long timeLeft;
-	unsigned long lastMillis;
-	bool timerRunning;
+		VoidCallback timeoutCallback;
+		unsigned long timeLeft;
+		unsigned long lastMillis;
+		bool timerRunning;
+	};
 };
-
 
 #endif

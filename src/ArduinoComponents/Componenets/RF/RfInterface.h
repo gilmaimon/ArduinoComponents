@@ -7,80 +7,82 @@
 
 #include "../BaseComponent.h"
 
-struct Message {
-	Message() : Message("") {}
-	Message(const char* str) {
-		len = strlen(str);
-		memcpy(data, (uint8_t*) str, len);
-	}
-	static const uint16_t MAX_LENGTH = 128;
-	uint8_t data[MAX_LENGTH];
-	uint16_t len;
-};
+namespace components {
+	struct Message {
+		Message() : Message("") {}
+		Message(const char* str) {
+			len = strlen(str);
+			memcpy(data, (uint8_t*) str, len);
+		}
+		static const uint16_t MAX_LENGTH = 128;
+		uint8_t data[MAX_LENGTH];
+		uint16_t len;
+	};
 
-/*
-rf.onMessage([](const Message& msg){
-	
-	return true; // msg was handled and should not be dispatched any more
-});
+	/*
+	rf.onMessage([](const Message& msg){
+		
+		return true; // msg was handled and should not be dispatched any more
+	});
 
-rf.onMessage(ContentFilter("ABCDEFGHIJKLMNOP"), [](const Message& msg){
-	
-	return false; // keep sending this msg to handlers
-});
-*/
+	rf.onMessage(ContentFilter("ABCDEFGHIJKLMNOP"), [](const Message& msg){
+		
+		return false; // keep sending this msg to handlers
+	});
+	*/
 
-enum Status : bool {
-	Status_Success = false,
-	Status_Failure = true
-};
+	enum Status : bool {
+		Status_Success = false,
+		Status_Failure = true
+	};
 
-typedef Function<bool(const Message&)> FilterFunction;
-typedef Function<bool(const Message&)> HandlerFunction;
+	typedef Function<bool(const Message&)> FilterFunction;
+	typedef Function<bool(const Message&)> HandlerFunction;
 
-class RfInterface : public BaseComponent {
-public:
-	RfInterface(Ref<BaseComponent> parent) : BaseComponent(parent) {}
+	class RfInterface : public BaseComponent {
+	public:
+		RfInterface(Ref<BaseComponent> parent) : BaseComponent(parent) {}
 
-	virtual bool send(Message& msg) = 0;
-	
-	void onMessage(FilterFunction filter, HandlerFunction handler) {
-		_handlers.push(FilterHandlerPair{
-			filter, 
-			handler
-		});
-	}
-	void onMessage(HandlerFunction handler) {
-		_handlers.push(FilterHandlerPair{
-			[](const Message&){
-				return true;
-			}, 
-			handler
-		});
-	}
+		virtual bool send(Message& msg) = 0;
+		
+		void onMessage(FilterFunction filter, HandlerFunction handler) {
+			_handlers.push(FilterHandlerPair{
+				filter, 
+				handler
+			});
+		}
+		void onMessage(HandlerFunction handler) {
+			_handlers.push(FilterHandlerPair{
+				[](const Message&){
+					return true;
+				}, 
+				handler
+			});
+		}
 
-	virtual ~RfInterface() {}
+		virtual ~RfInterface() {}
 
-protected:
-	void disptachMessageToHandlers(const Message& msg) {
-		for(unsigned i = 0; i < _handlers.size(); i++) {
-			if(_handlers.get(i).filter(msg)) {
-				bool handled = _handlers.get(i).handler(msg);
-				if(handled) return;
+	protected:
+		void disptachMessageToHandlers(const Message& msg) {
+			for(unsigned i = 0; i < _handlers.size(); i++) {
+				if(_handlers.get(i).filter(msg)) {
+					bool handled = _handlers.get(i).handler(msg);
+					if(handled) return;
+				}
 			}
 		}
-	}
 
-private:
-	struct FilterHandlerPair {
-		FilterHandlerPair(
-			FilterFunction filterFunction = [](const Message&){ return false; }, 
-			HandlerFunction handlerFunction = [](const Message&){ return false; }
-		) : filter(filterFunction), handler(handlerFunction) {}
-		FilterFunction filter;
-		HandlerFunction handler;
+	private:
+		struct FilterHandlerPair {
+			FilterHandlerPair(
+				FilterFunction filterFunction = [](const Message&){ return false; }, 
+				HandlerFunction handlerFunction = [](const Message&){ return false; }
+			) : filter(filterFunction), handler(handlerFunction) {}
+			FilterFunction filter;
+			HandlerFunction handler;
+		};
+		Vector<FilterHandlerPair> _handlers;
 	};
-	Vector<FilterHandlerPair> _handlers;
 };
 
 #endif

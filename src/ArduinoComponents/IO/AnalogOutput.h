@@ -3,12 +3,13 @@
 
 #include "IO.h"
 #include "DigitalOutput.h"
-
-class AnalogOutput : public DigitalOutput {
-public:
-	AnalogOutput(PinNumber);
-	void write(float);
-	~AnalogOutput();
+namespace components {
+	class AnalogOutput : public DigitalOutput {
+	public:
+		AnalogOutput(PinNumber);
+		void write(float);
+		~AnalogOutput();
+	};
 };
 
 #endif

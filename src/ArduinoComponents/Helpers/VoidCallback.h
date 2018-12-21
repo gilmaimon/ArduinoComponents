@@ -2,7 +2,7 @@
 #define VOIDCALLBACK_H_
 
 #include "Function.h"
-
-typedef Function<void(void)> VoidCallback;
-
+namespace components {
+    typedef Function<void(void)> VoidCallback;
+};
 #endif
