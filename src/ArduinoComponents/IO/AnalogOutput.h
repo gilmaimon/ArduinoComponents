@@ -9,6 +9,10 @@ namespace components {
 		AnalogOutput(PinNumber);
 		void write(float);
 		~AnalogOutput();
+	private:
+		#ifdef ARDUINO_ARCH_ESP32
+			unsigned char pwmChannel;
+		#endif
 	};
 };
 
