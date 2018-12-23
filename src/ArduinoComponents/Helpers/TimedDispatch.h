@@ -2,7 +2,7 @@
 #define __TIMEDDISPATCH_H__
 
 #include "VoidCallback.h"
-#include "../Componenets/BaseComponent.h"
+#include "../Components/BaseComponent.h"
 
 namespace components {
 	class TimedDispatch : public BaseComponent {
