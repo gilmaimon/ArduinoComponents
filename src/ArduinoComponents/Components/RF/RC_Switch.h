@@ -2,16 +2,16 @@
 #define __RC_SWITCH_H__
 
 #include <RCSwitch.h>
-#include "../BaseComponent.h"
+#include "../Component.h"
 #include "../../Helpers/Function.h"
 
 namespace components {
-	class RC_Switch : public BaseComponent {
+	class RC_Switch : public Component {
 	public:
 		enum class MODE {
 			MODE_Reciever, Mode_transmitter
 		};
-		RC_Switch(int pin, MODE mode) : BaseComponent(nullptr), codeCallback([](int code){}) {
+		RC_Switch(int pin, MODE mode) : Component(nullptr), codeCallback([](int code){}) {
 			if(mode == MODE::MODE_Reciever) {
 				mySwitch.enableReceive(pin);
 			} else {

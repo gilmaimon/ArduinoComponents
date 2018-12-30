@@ -2,13 +2,13 @@
 #define __TIMEDDISPATCH_H__
 
 #include "VoidCallback.h"
-#include "../Components/BaseComponent.h"
+#include "../Components/Component.h"
 
 namespace components {
-	class TimedDispatch : public BaseComponent {
+	class TimedDispatch : public Component {
 	public:
 		TimedDispatch(VoidCallback callback) : TimedDispatch(nullptr, callback) {}
-		TimedDispatch(Ref<BaseComponent> parent, VoidCallback callback);
+		TimedDispatch(Ref<Component> parent, VoidCallback callback);
 		void disptach_delayed(unsigned long delay);
 		void cancel();
 

@@ -1,13 +1,13 @@
 #include <ArduinoComponents.h>
-#include <ArduinoComponents/Componenets/TactileButton.h>
-#include <ArduinoComponents/Componenets/LED.h>
+#include <ArduinoComponents/Components/TactileButton.h>
+#include <ArduinoComponents/Components/LED.h>
 
 using namespace components;
 
-class ButtonToggledLED : public BaseComponent {
+class ButtonToggledLED : public Component {
 public:
 	ButtonToggledLED(PinNumber buttonPin, PinNumber ledPin) : 
-		BaseComponent(), 
+		Component(), 
 		led(ledPin, State::State_Low), 
 		button(buttonPin, TriggerOn::Low, InputPull::Up) {
 

@@ -5,9 +5,9 @@
 #include "../Helpers/Vector.h"
 
 namespace components {
-	class BaseComponent {
+	class Component {
 	public:
-		BaseComponent(Ref<BaseComponent> parent = nullptr) : _parent(parent), _children(5), _isLooping(false) {}
+		Component(Ref<Component> parent = nullptr) : _parent(parent), _children(5), _isLooping(false) {}
 		void loop() {
 			_isLooping = true;
 			loopChildren();
@@ -21,13 +21,13 @@ namespace components {
 			_isLooping = false;
 			if(*_parent != nullptr) _parent->SkipLoop();
 		}
-		void RegisterChild(Ref<BaseComponent> child) {
+		void RegisterChild(Ref<Component> child) {
 			_children.push(child);
 		}
 
 	private:
-		Ref<BaseComponent> _parent;
-		Vector<Ref<BaseComponent>> _children;
+		Ref<Component> _parent;
+		Vector<Ref<Component>> _children;
 		bool _isLooping;
 
 		void loopChildren() {

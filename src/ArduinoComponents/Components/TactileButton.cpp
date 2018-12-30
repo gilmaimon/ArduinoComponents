@@ -1,8 +1,8 @@
 #include "TactileButton.h"
 
 namespace components {
-	TactileButton::TactileButton(Ref<BaseComponent> parent, DigitalInput input, TriggerOn trigger) : BaseComponent(parent), _input(input), _pressed(false), _on_press([](){}), _on_release([](){}), trigger(trigger) {}
-	TactileButton::TactileButton(Ref<BaseComponent> parent, PinNumber pin, TriggerOn trigger, InputPull pull) : TactileButton(parent, DigitalInput(pin, pull), trigger) {}
+	TactileButton::TactileButton(Ref<Component> parent, DigitalInput input, TriggerOn trigger) : Component(parent), _input(input), _pressed(false), _on_press([](){}), _on_release([](){}), trigger(trigger) {}
+	TactileButton::TactileButton(Ref<Component> parent, PinNumber pin, TriggerOn trigger, InputPull pull) : TactileButton(parent, DigitalInput(pin, pull), trigger) {}
 
 	void TactileButton::onPress(VoidCallback cbk) {
 		this->_on_press = cbk;

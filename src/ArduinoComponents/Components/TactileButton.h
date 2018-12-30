@@ -4,15 +4,15 @@
 #include "../IO/IO.h"
 #include "../IO/DigitalInput.h"
 #include "../Helpers/VoidCallback.h"
-#include "BaseComponent.h"
+#include "Component.h"
 
 namespace components {
-	class TactileButton : public BaseComponent {
+	class TactileButton : public Component {
 	public:
 		TactileButton(DigitalInput input, TriggerOn trigger) : TactileButton(nullptr, input, trigger) {}
-		TactileButton(Ref<BaseComponent> parent, DigitalInput input, TriggerOn trigger);
+		TactileButton(Ref<Component> parent, DigitalInput input, TriggerOn trigger);
 		TactileButton(PinNumber pin, TriggerOn trigger, InputPull pull = InputPull::None) : TactileButton(nullptr, pin, trigger, pull) {}
-		TactileButton(Ref<BaseComponent> parent, PinNumber pin, TriggerOn trigger, InputPull pull = InputPull::None);
+		TactileButton(Ref<Component> parent, PinNumber pin, TriggerOn trigger, InputPull pull = InputPull::None);
 
 		void onPress(VoidCallback cbk);
 		void onRelease(VoidCallback cbk);

@@ -6,7 +6,7 @@
 #include "../../Helpers/Function.h"
 #include "../../Helpers/Vector.h"
 
-#include "../BaseComponent.h"
+#include "../Component.h"
 
 namespace components {
 	struct Message {
@@ -40,9 +40,9 @@ namespace components {
 	typedef Function<bool(const Message&)> FilterFunction;
 	typedef Function<bool(const Message&)> HandlerFunction;
 
-	class RfInterface : public BaseComponent {
+	class RfInterface : public Component {
 	public:
-		RfInterface(Ref<BaseComponent> parent) : BaseComponent(parent) {}
+		RfInterface(Ref<Component> parent) : Component(parent) {}
 
 		virtual bool send(Message& msg) = 0;
 		

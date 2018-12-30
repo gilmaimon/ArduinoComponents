@@ -3,8 +3,8 @@
 #include "Ref.h"
 
 namespace components {
-	TimedDispatch::TimedDispatch(Ref<BaseComponent> parent, VoidCallback callback) : 
-		BaseComponent(parent), 
+	TimedDispatch::TimedDispatch(Ref<Component> parent, VoidCallback callback) : 
+		Component(parent), 
 		timeoutCallback(callback), 
 		timeLeft(0), 
 		timerRunning(false), 

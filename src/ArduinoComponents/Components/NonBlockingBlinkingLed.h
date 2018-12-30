@@ -2,10 +2,10 @@
 #define __NONBLOCKINGBLINKINGLED_H__
 
 #include "LED.h"
-#include "BaseComponent.h"
+#include "Component.h"
 #include "../IO/IO.h"
 
-class NonBlockingBlinkingLed : public components::BaseComponent {
+class NonBlockingBlinkingLed : public components::Component {
 public:
 	NonBlockingBlinkingLed(components::LED led, unsigned interval);
 	NonBlockingBlinkingLed(components::LED led);
