@@ -10,14 +10,14 @@ namespace components {
 		TimedDispatch(VoidCallback callback) : TimedDispatch(nullptr, callback) {}
 		TimedDispatch(Ref<Component> parent, VoidCallback callback);
 		void disptach_delayed(unsigned long delay);
+		bool isRunning();
 		void cancel();
 
 	private:
 		void privateLoop();
 
 		VoidCallback timeoutCallback;
-		unsigned long timeLeft;
-		unsigned long lastMillis;
+		unsigned long deadline;
 		bool timerRunning;
 	};
 };

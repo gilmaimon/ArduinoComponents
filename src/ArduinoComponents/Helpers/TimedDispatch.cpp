@@ -6,32 +6,30 @@ namespace components {
 	TimedDispatch::TimedDispatch(Ref<Component> parent, VoidCallback callback) : 
 		Component(parent), 
 		timeoutCallback(callback), 
-		timeLeft(0), 
 		timerRunning(false), 
-		lastMillis(0) {
+		deadline(0) {
 
 	}
 
 	void TimedDispatch::disptach_delayed(unsigned long delay) {
 		cancel();
-		timeLeft = delay;
 		timerRunning = true;
-		lastMillis = millisTime();
+		deadline = millisTime() + delay;
 	}
 
 	void TimedDispatch::cancel() {
 		timerRunning = false;
 	}
 
+	bool TimedDispatch::isRunning() {
+		return timerRunning;
+	}
+
 	void TimedDispatch::privateLoop() {
-		unsigned long newMillis = millisTime();
 		if(!timerRunning) return;
-		if(newMillis - lastMillis > timeLeft) {
+		if(millisTime() >= deadline) {
 				cancel();
 				timeoutCallback();
-			} else {
-			timeLeft -= (newMillis - lastMillis);
-			lastMillis = newMillis;
 		}
 	}
 };

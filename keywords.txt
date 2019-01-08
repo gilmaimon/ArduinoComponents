@@ -59,6 +59,8 @@ TactileButton	KEYWORD1
 
 disptach_delayed	KEYWORD2
 cancel	KEYWORD2
+isRunning	KEYWORD2
+
 privateLoop	KEYWORD2
 push	KEYWORD2
 pop	KEYWORD2
