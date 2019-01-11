@@ -1,4 +1,4 @@
-[![ArduinoLibraryManager](http://arduino-library-badge.gilmaimon.xyz:4040/badge/ArduinoComponents.svg)]
+![ArduinoLibraryManager](http://arduino-library-badge.gilmaimon.xyz:4040/badge/ArduinoComponents.svg)
 
 # Arduino Components
 
