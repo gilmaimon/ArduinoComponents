@@ -1,4 +1,4 @@
-[![arduino-library-badge](http://arduino-library-badge.gilmaimon.xyz:4040/badge/ArduinoComponents.svg)](https://www.arduino.cc/en/guide/libraries)
+[![arduino-library-badge](http://arduino-library-badge.gilmaimon.xyz/badge/ArduinoComponents.svg)](https://www.arduino.cc/en/guide/libraries)
 
 # Arduino Components
 
