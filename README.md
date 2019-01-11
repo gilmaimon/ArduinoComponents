@@ -1,3 +1,5 @@
+[![ArduinoLibraryManager](http://arduino-library-badge.gilmaimon.xyz:4040/badge/ArduinoComponents.svg)]
+
 # Arduino Components
 
 Components is a project that aims to help electronics hobbyists to write code for Arduino that is:
