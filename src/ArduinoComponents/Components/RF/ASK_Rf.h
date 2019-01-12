@@ -1,3 +1,5 @@
+#ifdef EXPERIMENTAL_RF
+
 #ifndef __ASK_RF_H__
 #define __ASK_RF_H__
 
@@ -20,4 +22,5 @@ namespace components {
 	};
 };
 
-#endif 
+#endif //__ASK_RF_H__
+#endif //EXPERIMENTAL_RF

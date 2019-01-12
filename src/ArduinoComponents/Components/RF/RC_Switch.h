@@ -1,3 +1,5 @@
+#ifdef EXPERIMENTAL_RF
+
 #ifndef __RC_SWITCH_H__
 #define __RC_SWITCH_H__
 
@@ -44,4 +46,5 @@ namespace components {
 	};
 };
 
-#endif
+#endif //__RC_SWITCH_H__
+#endif //EXPERIMENTAL_RF

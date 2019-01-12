@@ -1,3 +1,5 @@
+#ifdef EXPERIMENTAL_RF
+
 #include <RH_ASK.h>
 #include <SPI.h>
 #include "ASK_Rf.h"
@@ -31,3 +33,5 @@ namespace components {
 
 	ASK_Rf::~ASK_Rf() {}
 };
+
+#endif //EXPERIMENTAL_RF

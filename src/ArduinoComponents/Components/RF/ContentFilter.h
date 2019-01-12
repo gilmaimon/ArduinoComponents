@@ -1,3 +1,5 @@
+#ifdef EXPERIMENTAL_RF
+
 #ifndef CONTENTFILTER_H_
 #define CONTENTFILTER_H_
 
@@ -16,4 +18,5 @@ namespace components {
 		}
 	}
 };
-#endif
+#endif //CONTENTFILTER_H_
+#endif //EXPERIMENTAL_RF

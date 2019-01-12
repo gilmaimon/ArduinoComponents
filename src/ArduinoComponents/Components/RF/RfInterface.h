@@ -1,3 +1,5 @@
+#ifdef EXPERIMENTAL_RF
+
 #ifndef RFINTERFACE_H_
 #define RFINTERFACE_H_
 
@@ -85,5 +87,7 @@ namespace components {
 		Vector<FilterHandlerPair> _handlers;
 	};
 };
+#ifdef 
 
-#endif
+#endif //RFINTERFACE_H_
+#endif //EXPERIMENTAL_RF
