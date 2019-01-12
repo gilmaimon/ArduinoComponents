@@ -8,14 +8,14 @@
 #include "RfInterface.h"
 
 namespace components {
-	class ASK_Rf : public RfInterface {
+	class ASK_RF : public RfInterface {
 	public:
-		ASK_Rf() = delete;
-		ASK_Rf(uint8_t rxPin, uint8_t txPin) : ASK_Rf(nullptr, 2000, rxPin, txPin) {}
-		ASK_Rf(uint8_t rxPin, uint8_t txPin, Ref<Component> parent) : ASK_Rf(parent, 2000, rxPin, txPin) {}
-		ASK_Rf(Ref<Component> parent = nullptr, uint16_t speed = 2000, uint8_t rxPin = 11, uint8_t txPin = 12, uint8_t pttPin = 10, bool pttInverted = false);
+		ASK_RF() = delete;
+		ASK_RF(uint8_t rxPin, uint8_t txPin) : ASK_RF(nullptr, 2000, rxPin, txPin) {}
+		ASK_RF(uint8_t rxPin, uint8_t txPin, Ref<Component> parent) : ASK_RF(parent, 2000, rxPin, txPin) {}
+		ASK_RF(Ref<Component> parent = nullptr, uint16_t speed = 2000, uint8_t rxPin = 11, uint8_t txPin = 12, uint8_t pttPin = 10, bool pttInverted = false);
 		virtual bool send(Message& msg);
-		virtual ~ASK_Rf();
+		virtual ~ASK_RF();
 	public:
 		RH_ASK _driver;
 		virtual void privateLoop();

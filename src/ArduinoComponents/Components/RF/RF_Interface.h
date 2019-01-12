@@ -87,7 +87,5 @@ namespace components {
 		Vector<FilterHandlerPair> _handlers;
 	};
 };
-#ifdef 
-
 #endif //RFINTERFACE_H_
 #endif //EXPERIMENTAL_RF
