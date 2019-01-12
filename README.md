@@ -17,10 +17,11 @@ Components is a project that aims to help electronics hobbyists to write code fo
 You can get the latest library version via the built in [Arduino IDE Library Manager](https://www.arduino.cc/en/guide/libraries) or get the ZIP file with the source code from the [GitHub release](https://github.com/gilmaimon/ArduinoComponents/releases) page.
 
 ### Dependencies
-In order to start using this library you will probably need to first have the following libraries:
-- [RadioHead](https://www.airspayce.com/mikem/arduino/RadioHead/) - Packet Radio library for embedded microprocessors.
-- [rc-switch](https://github.com/sui77/rc-switch) - Arduino lib to operate 433/315Mhz devices.
+**There are none!** This library (in it's current form) is fully self contained.
 
+*UPDATE 12.01.2019: If you wish to use the experimental RF componenets you will need to `#define EXPERIMENTAL_RF`and to have the following libraries installed:*
+- *[RadioHead](https://www.airspayce.com/mikem/arduino/RadioHead/) - Packet Radio library for embedded microprocessors.*
+- *[rc-switch](https://github.com/sui77/rc-switch) - Arduino lib to operate 433/315Mhz devices.*
 ### Project Structure
 - **IO** - includes the basic IO classes such as `DigitalInput`, `DigitalOutput`, `AnalaogInput`, `millisTime` (and more)
 - **Components** - includes a few useful components such as `LED`, `TactileButton` and some more experimental RF classes. *Open for contributions and extensions!*
