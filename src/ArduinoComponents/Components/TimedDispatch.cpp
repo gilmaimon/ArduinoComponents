@@ -1,6 +1,6 @@
 #include "TimedDispatch.h"
 #include "../IO/IO.h"
-#include "Ref.h"
+#include "../Helpers/Ref.h"
 
 namespace components {
 	TimedDispatch::TimedDispatch(Ref<Component> parent, VoidCallback callback) : 
@@ -8,10 +8,9 @@ namespace components {
 		timeoutCallback(callback), 
 		timerRunning(false), 
 		deadline(0) {
-
 	}
 
-	void TimedDispatch::disptach_delayed(unsigned long delay) {
+	void TimedDispatch::dispatch_delayed(unsigned long delay) {
 		cancel();
 		timerRunning = true;
 		deadline = millisTime() + delay;
