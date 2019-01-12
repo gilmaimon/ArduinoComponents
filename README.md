@@ -1,7 +1,6 @@
 [![arduino-library-badge](http://arduino-library-badge.gilmaimon.xyz/badge/ArduinoComponents.svg)](https://www.arduino.cc/en/guide/libraries)
 
 # Arduino Components
-
 Components is a project that aims to help electronics hobbyists to write code for Arduino that is:
 - **Modern** - Take advantage of the included Helper Classes (Vector, Function, TimedDispatch...) and write event driven code
 - **Reusable** - Reuse existing components or your own from past projects
@@ -10,6 +9,15 @@ Components is a project that aims to help electronics hobbyists to write code fo
 
 &nbsp;
 ![Structure](https://github.com/gilmaimon/ArduinoComponents/blob/master/Components.png)
+
+
+Quick Jump:
+* [Getting Started](#Getting-Started)
+* [Basics](#Basics)
+* [Component](#Component)
+* [Examples](#Examples)
+* [Contributing](#Contributing)
+* [License](#License)
 
 ## Getting Started
 
@@ -27,7 +35,7 @@ You can get the latest library version via the built in [Arduino IDE Library Man
 - **Components** - includes a few useful components such as `LED`, `TactileButton` and some more experimental RF classes. *Open for contributions and extensions!*
 - **Helpers** - includes useful helper classes such as `Vector`, `Function` and `Ref`
 
-## Examples
+## Basics
 ### Basic IO
 For basic digital and analog input and output this library provides the following utilities:
 #### Digital IO
@@ -107,6 +115,12 @@ For built-in components [Click Here](https://github.com/gilmaimon/ArduinoCompone
 View the `Examples` section below for more examples of components creation and usage.
 
 ## Examples
+* [Examples](#Examples)
+	* [Blink](#Blink)
+	* [Basic IO](#Basic-IO)
+	* [Higher Level Components](#Higher-Level-Components)
+	* [Custom Components](#Custom-Components)
+	
 ### Blink
 This is a good example for using the built in `DigitalOutput` class. **Notice** how you don't need to rewrite the pin number every time and there is no risk of forgetting to write `pinMode(...)` etc.
 ```c++
