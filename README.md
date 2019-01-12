@@ -1,6 +1,14 @@
 [![arduino-library-badge](http://arduino-library-badge.gilmaimon.xyz/badge/ArduinoComponents.svg)](https://www.arduino.cc/en/guide/libraries)
 
 # Arduino Components
+Quick Jump:
+* [Getting Started](#Getting-Started)
+* [Basics](#Basics)
+* [Component](#Component)
+* [Examples](#Examples)
+* [Contributing](#Contributing)
+* [License](#License)
+
 Components is a project that aims to help electronics hobbyists to write code for Arduino that is:
 - **Modern** - Take advantage of the included Helper Classes (Vector, Function, TimedDispatch...) and write event driven code
 - **Reusable** - Reuse existing components or your own from past projects
@@ -9,15 +17,6 @@ Components is a project that aims to help electronics hobbyists to write code fo
 
 &nbsp;
 ![Structure](https://github.com/gilmaimon/ArduinoComponents/blob/master/Components.png)
-
-
-Quick Jump:
-* [Getting Started](#Getting-Started)
-* [Basics](#Basics)
-* [Component](#Component)
-* [Examples](#Examples)
-* [Contributing](#Contributing)
-* [License](#License)
 
 ## Getting Started
 
