@@ -3,9 +3,10 @@
 
 #include "../IO/IO.h"
 #include "../IO/DigitalOutput.h"
+#include "Component.h"
 
 namespace components {
-	class LED {
+	class LED : public Component {
 	public:
 		LED(PinNumber pin, State startState = State_Low);
 		LED(DigitalOutput out, State startState = State_Low);
@@ -19,6 +20,8 @@ namespace components {
 	private:
 		State _state;
 		DigitalOutput _output;
+
+		void privateLoop() {}
 	};
 };
 
