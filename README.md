@@ -6,29 +6,78 @@ Components is a project that aims to help electronics hobbyists to write code fo
 - **Modern** - Take advantage of the included Helper Classes (Vector, Function, TimedDispatch...) and write event driven code
 - **Reusable** - Reuse existing components or your own from past projects
 - **Extendable** - Make your own (hardware independent) components and use base components from the library
-- **Testable** - Centralize Platform dependent code and test components individually
+- **Testable** - Centralize Platform dependent code. Mock and test components individually
 
 &nbsp;
 ![Structure](https://github.com/gilmaimon/ArduinoComponents/blob/master/Components.png)
 
-## Project Structure
-Folders:
-- **IO** - includes the basic IO classes such as `DigitalInput`, `DigitalOutput`, `AnalaogInput` and `millisTime` (and more)
-- **Components** - includes a few useful components such as `LED` and `TactileButton` and some more experimental RF classes. *Open for contributions and extensions!*
+## Getting Started
+
+### Prerequisites
+You can get the latest library version via the built in [Arduino IDE Library Manager](https://www.arduino.cc/en/guide/libraries) or get the ZIP file with the source code from the [GitHub release](https://github.com/gilmaimon/ArduinoComponents/releases) page.
+
+### Dependencies
+In order to start using this library you will probably need to first have the following libraries:
+- [RadioHead](https://www.airspayce.com/mikem/arduino/RadioHead/) - Packet Radio library for embedded microprocessors.
+- [rc-switch](https://github.com/sui77/rc-switch) - Arduino lib to operate 433/315Mhz devices.
+
+### Project Structure
+- **IO** - includes the basic IO classes such as `DigitalInput`, `DigitalOutput`, `AnalaogInput`, `millisTime` (and more)
+- **Components** - includes a few useful components such as `LED`, `TactileButton` and some more experimental RF classes. *Open for contributions and extensions!*
 - **Helpers** - includes useful helper classes such as `Vector`, `Function` and `Ref`
-- **Examples** - currently only has few basic examples, starting from the basic classes provided
 
-## BaseComponent
-Represents the base class for all components. this is the class to extend if you want to create custom components.
-Custom components need to:
+## Examples
+### Basic IO
+For basic digital and analog input and output this library provides the following utilities:
+#### Digital IO
+```C++
+// initiates digital output on pin 13
+DigitalOutput led(13); 
+// pin can be controlled with:
+led.high();
+led.low();
+
+// initiates digital input on pin 8
+DigitalInput in(8);
+if(in.isHigh()) {
+  // Do something when HIGH
+}
+if(in.isLow()) {
+  // Do something when LOW
+}
+```
+
+#### Analog IO
+```C++
+// initiates PWM output on pin 9 (pwm on UNO)
+AnalogOutput led(9);
+// pwm values should be between 0.0 and 1.0
+led.write(0.25); // led is 25% on 
+
+// pwm pins can also be controlled with:
+led.high();
+led.low();
+
+// initiates analog input on pin 8
+AnalogInput in(8);
+float reading = in.read(); // returns a value from 0.0 to 1.0
+if(reading > 0.75) {
+  // Do something when higher than 75%
+}
+```
+
+## Component
+
+`Component` represents the base class for all components. this is the class to extend if you want to create custom components.
+Custom components should:
 - Override `privateLoop`
-- Call `RegisterChild` on children (actually not mendatory)
+- Call `RegisterChild` on children (not mendatory)
 
-#### Interface
+### Interface
 ``` c++
-class BaseComponent {
+class Component {
 public:
-    BaseComponent(Ref<BaseComponent> parent = nullptr);
+    Component(Ref<Component> parent = nullptr);
     
     // loop is the public interface for proccessing input and inner class state. Notice it is not virtual.
     // loop will call `loop` on all children and than call `privateLoop`
@@ -37,7 +86,7 @@ public:
 protected:
     // `RegisterChild` stores a reference to the child in a vector so later (on `loop`) 
     //  the child's `loop` could be called
-    void RegisterChild(Ref<BaseComponent> child);
+    void RegisterChild(Ref<Component> child);
     
     // `SkipLoop` will stop the current looping and will restart looping from the root parent. This is
     // useful when  we dont want to run any code after a certain event or input
@@ -53,7 +102,8 @@ private:
 };
 ```
 
-Check out the examples for a demo.
+For built-in components [Click Here](https://github.com/gilmaimon/ArduinoComponents/tree/master/src/ArduinoComponents/Components)  
+View the `Examples` section below for more examples of components creation and usage.
 
 ## Examples
 ### Blink
@@ -125,12 +175,12 @@ void loop() {
 ```
 
 ### Custom Components
-This example is a bit more advanced. It shows a way to create a custom component (an object that extends `BaseComponent`) that has a button and an led. This sketch is another way to write the previous example.
+This example is a bit more advanced. It shows a way to create a custom component (an object that extends `Component`) that has a button and an led. This sketch is another way to write the previous example.
 ```c++
-class ButtonToggledLED : public BaseComponent {
+class ButtonToggledLED : public Component {
 public:
 	ButtonToggledLED(PinNumber buttonPin, PinNumber ledPin) : 
-		BaseComponent(), 
+		Component(), 
 		led(ledPin, State::State_Low), 
 		button(buttonPin, TriggerOn::Low, InputPull::Up) {
 
@@ -169,3 +219,14 @@ void loop() {
 	app.loop();
 }
 ```
+
+## Contributing
+Contributions are welcomed! You can help by:
+- Try the library out! Open issues and help others
+- Write custom components or share components you wrote for your own projects
+- Add examples
+- Fix bugs and documentation
+- Suggest refactoring and challenge design decisions
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
