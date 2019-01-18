@@ -1,4 +1,5 @@
-[![arduino-library-badge](http://arduino-library-badge.gilmaimon.xyz/badge/ArduinoComponents.svg)](https://www.arduino.cc/en/guide/libraries)
+[![arduino-library-badge](http://www.ardu-badge.com/badge/ArduinoComponents.svg)](http://www.ardu-badge.com/ArduinoComponents)
+
 
 Quick Jump:
 * [Getting Started](#Getting-Started)
