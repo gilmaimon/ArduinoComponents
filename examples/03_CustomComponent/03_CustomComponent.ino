@@ -1,6 +1,4 @@
 #include <ArduinoComponents.h>
-#include <ArduinoComponents/Components/TactileButton.h>
-#include <ArduinoComponents/Components/LED.h>
 
 using namespace components;
 
