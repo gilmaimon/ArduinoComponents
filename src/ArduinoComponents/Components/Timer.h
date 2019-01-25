@@ -9,11 +9,20 @@ Name: Timer
 Include: #include <ArduinoComponents/Components/Timer.h>
 Sentence: A class for calling a callback function after specified delay.
 BasicUsage:
+	// For running code after some delay:
 	Timer t;
 	t.setTimeout([](){
-		// Do Something
+		// Do Something after the delay
 	}, 1000); // 1000 -> is the delay in milliseconds
 
+	// For runnig code in fixed intervals
+	Timer t;
+	t.onInterval([](){
+		// Do Something on intervals
+	}, 1500); // 1500 -> is the interval in milliseconds
+
+
+	// Always needed:
 	void loop() {
 		// ... Code
 		t.loop();
@@ -32,6 +41,7 @@ namespace components {
 		Timer(Ref<Component> parent);
 		Timer() : Timer(nullptr) {}
 		void setTimeout(VoidCallback callback, unsigned long delay);
+		void onInterval(VoidCallback callback, unsigned long interval);
 		bool isRunning();
 		unsigned long timeLeft();
 		void cancel();
@@ -42,6 +52,9 @@ namespace components {
 		VoidCallback timeoutCallback;
 		unsigned long deadline;
 		bool timerRunning;
+		
+		unsigned _interval;
+		bool _intervaling;
 	};
 };
 

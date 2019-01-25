@@ -58,6 +58,7 @@ LED	KEYWORD1
 TactileButton	KEYWORD1
 
 setTimeout	KEYWORD2
+onInterval	KEYWORD2
 cancel	KEYWORD2
 isRunning	KEYWORD2
 

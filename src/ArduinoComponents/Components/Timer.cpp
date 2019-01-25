@@ -12,9 +12,21 @@ namespace components {
 
 	void Timer::setTimeout(VoidCallback callback, unsigned long delay) {
 		cancel();
+		_intervaling = false;
 		timerRunning = true;
 		timeoutCallback = callback;
 		deadline = millisTime() + delay;
+	}
+
+	void Timer::onInterval(VoidCallback callback, unsigned long interval) {
+		cancel();
+		
+		_interval = interval;
+		_intervaling = true;
+
+		timerRunning = true;
+		timeoutCallback = callback;
+		deadline = millisTime() + interval;
 	}
 
 	void Timer::cancel() {
@@ -32,8 +44,13 @@ namespace components {
 	void Timer::privateLoop() {
 		if(!timerRunning) return;
 		if(millisTime() >= deadline) {
+			if(_intervaling) {
+				deadline = millisTime() + _interval;
+				timeoutCallback();
+			} else {
 				cancel();
 				timeoutCallback();
+			}
 		}
 	}
 };
