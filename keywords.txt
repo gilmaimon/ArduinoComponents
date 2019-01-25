@@ -50,14 +50,14 @@ Down	LITERAL1
 
 Function	KEYWORD1
 Ref	KEYWORD1
-TimedDispatch	KEYWORD1
+Timer	KEYWORD1
 UniquePtr	KEYWORD1
 Vector	KEYWORD1
 VoidCallback	KEYWORD1
 LED	KEYWORD1
 TactileButton	KEYWORD1
 
-dispatch_delayed	KEYWORD2
+setTimeout	KEYWORD2
 cancel	KEYWORD2
 isRunning	KEYWORD2
 
