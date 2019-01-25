@@ -49,9 +49,9 @@ namespace components {
 	private:
 		void privateLoop();
 
-		VoidCallback timeoutCallback;
-		unsigned long deadline;
-		bool timerRunning;
+		VoidCallback _timeout_callback;
+		unsigned long _deadline;
+		bool _timer_running;
 		
 		unsigned _interval;
 		bool _intervaling;

@@ -5,17 +5,17 @@
 namespace components {
 	Timer::Timer(Ref<Component> parent) : 
 		Component(parent),
-		timeoutCallback([](){}),
-		timerRunning(false), 
-		deadline(0) {
+		_timeout_callback([](){}),
+		_timer_running(false), 
+		_deadline(0) {
 	}
 
 	void Timer::setTimeout(VoidCallback callback, unsigned long delay) {
 		cancel();
 		_intervaling = false;
-		timerRunning = true;
-		timeoutCallback = callback;
-		deadline = millisTime() + delay;
+		_timer_running = true;
+		_timeout_callback = callback;
+		_deadline = millisTime() + delay;
 	}
 
 	void Timer::onInterval(VoidCallback callback, unsigned long interval) {
@@ -24,32 +24,32 @@ namespace components {
 		_interval = interval;
 		_intervaling = true;
 
-		timerRunning = true;
-		timeoutCallback = callback;
-		deadline = millisTime() + interval;
+		_timer_running = true;
+		_timeout_callback = callback;
+		_deadline = millisTime() + interval;
 	}
 
 	void Timer::cancel() {
-		timerRunning = false;
+		_timer_running = false;
 	}
 
 	bool Timer::isRunning() {
-		return timerRunning;
+		return _timer_running;
 	}
 	
 	unsigned long Timer::timeLeft() {
-		return deadline - millisTime();
+		return _deadline - millisTime();
 	}
 
 	void Timer::privateLoop() {
-		if(!timerRunning) return;
-		if(millisTime() >= deadline) {
+		if(!_timer_running) return;
+		if(millisTime() >= _deadline) {
 			if(_intervaling) {
-				deadline = millisTime() + _interval;
-				timeoutCallback();
+				_deadline = millisTime() + _interval;
+				_timeout_callback();
 			} else {
 				cancel();
-				timeoutCallback();
+				_timeout_callback();
 			}
 		}
 	}
