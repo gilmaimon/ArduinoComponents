@@ -10,13 +10,11 @@ before_install:
 install:
   - ln -s $PWD /usr/local/share/arduino/libraries/ArduinoComponents
 script:
-  - arduino --verify --verbose-build --board arduino:avr:uno $PWD/examples/00_Blink/00_Blink.ino
-  - arduino --verify --verbose-build --board arduino:avr:uno $PWD/examples/01_BasicIO/01_BasicIO.ino
-  - arduino --verify --verbose-build --board arduino:avr:uno $PWD/examples/02_TactileButton/02_TactileButton.ino
-  - arduino --verify --verbose-build --board arduino:avr:uno $PWD/examples/03_CustomComponent/03_CustomComponent.ino
-  - arduino --verify --verbose-build --board arduino:avr:uno $PWD/examples/04_TimeDispatch_Blink/04_TimeDispatch_Blink.ino
-  - arduino --verify --verbose-build --board arduino:avr:uno $PWD/examples/Components/Timer/OnInterval/OnInterval.ino
-  - arduino --verify --verbose-build --board arduino:avr:uno $PWD/examples/Components/Timer/SetTimeout/SetTimeout.ino
+  - "echo $PWD"
+  - "echo $HOME"
+  - "ls $PWD"
+  - source $TRAVIS_BUILD_DIR/travis/common.sh
+  - build_examples
 notifications:
   email:
     on_success: change
