@@ -1,5 +1,4 @@
-[![arduino-library-badge](http://www.ardu-badge.com/badge/ArduinoComponents.svg)](http://www.ardu-badge.com/ArduinoComponents)
-
+[![arduino-library-badge](http://www.ardu-badge.com/badge/ArduinoComponents.svg)](http://www.ardu-badge.com/ArduinoComponents) [![Build Status](https://travis-ci.org/gilmaimon/ArduinoComponents.svg?branch=master)](https://travis-ci.org/gilmaimon/ArduinoComponents)
 
 Quick Jump:
 * [Getting Started](#Getting-Started)
