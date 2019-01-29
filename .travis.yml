@@ -15,9 +15,9 @@ before_install:
   - arduino-cli core install arduino:avr
   - arduino-cli core install esp8266:esp8266
   - arduino-cli core install esp32:esp32
-  - buildExampleSketchAvr() { arduino-cli compile --fqbn --warnings all arduino:avr:uno $PWD/examples/$1; }
-  - buildExampleSketchEsp8266() { arduino-cli compile --fqbn --warnings all esp8266:esp8266:generic $PWD/examples/$1; }
-  - buildExampleSketchEsp32() { arduino-cli compile --fqbn --warnings all esp32:esp32:esp32 $PWD/examples/$1; }
+  - buildExampleSketchAvr() { arduino-cli compile --warnings all --fqbn arduino:avr:uno $PWD/examples/$1; }
+  - buildExampleSketchEsp8266() { arduino-cli compile --warnings all --fqbn esp8266:esp8266:generic $PWD/examples/$1; }
+  - buildExampleSketchEsp32() { arduino-cli compile --warnings all --fqbn esp32:esp32:esp32 $PWD/examples/$1; }
   - buildExampleSketch() { buildExampleSketchAvr $1; buildExampleSketchEsp8266 $1; buildExampleSketchEsp32 $1;}
 install:
   - mkdir -p $HOME/Arduino/libraries
