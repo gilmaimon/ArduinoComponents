@@ -34,8 +34,8 @@ namespace components {
 		bool isOn() const {return _state == State_High; }
 
 	private:
-		State _state;
 		DigitalOutput _output;
+		State _state;
 
 		void privateLoop() {}
 	};

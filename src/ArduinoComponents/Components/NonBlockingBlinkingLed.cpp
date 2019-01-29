@@ -1,10 +1,10 @@
 #include "NonBlockingBlinkingLed.h"
 
-NonBlockingBlinkingLed::NonBlockingBlinkingLed(components::LED led, unsigned interval) : blinking(true), led(led) {
+NonBlockingBlinkingLed::NonBlockingBlinkingLed(components::LED led, unsigned interval) : led(led), blinking(true) {
 	resumeBlinking(interval);
 }
 
-NonBlockingBlinkingLed::NonBlockingBlinkingLed(components::LED led) : blinking(false), led(led) {}
+NonBlockingBlinkingLed::NonBlockingBlinkingLed(components::LED led) : led(led), blinking(false) {}
 	
 void NonBlockingBlinkingLed::resumeBlinking(long interval) {
 	if(blinking && interval == blinkInterval) return;

@@ -50,8 +50,8 @@ namespace components {
 		void privateLoop();
 
 		VoidCallback _timeout_callback;
-		unsigned long _deadline;
 		bool _timer_running;
+		unsigned long _deadline;
 		
 		unsigned _interval;
 		bool _intervaling;

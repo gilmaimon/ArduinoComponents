@@ -16,7 +16,7 @@ void setup() {
 	led.off();
 
 	// Register a callback for the onRelease event
-	button.onRelease([&led](){
+	button.onRelease([](){
 		// Led stores its state internally, so it can be toggled
 		led.toggle();
 		// delay to ignore button debounces

@@ -24,8 +24,8 @@ public:
 	}
 
 private:
-	TactileButton button;
 	LED led;
+	TactileButton button;
 
 	void privateLoop() {
 		// By the time this function is called, `button`'s loop had already been executed
