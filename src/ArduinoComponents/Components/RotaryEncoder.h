@@ -1,3 +1,8 @@
+/*
+	Credit for this code goes to @HaxorGate
+	See the github issue: https://github.com/gilmaimon/ArduinoComponents/issues/10
+*/
+
 #include "TactileButton.h"
 #include "Component.h"
 namespace components
