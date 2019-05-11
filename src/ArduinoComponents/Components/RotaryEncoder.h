@@ -1,8 +1,11 @@
+#ifndef __ROTARYENCODER_H__
+#define __ROTARYENCODER_H__
+
 /*
 	Credit for this code goes to @HaxorGate
 	See the github issue: https://github.com/gilmaimon/ArduinoComponents/issues/10
 */
-
+#include <Arduino.h>
 #include "TactileButton.h"
 #include "Component.h"
 namespace components
@@ -20,3 +23,5 @@ namespace components
 			void privateLoop( void );
 	};
 }
+
+#endif

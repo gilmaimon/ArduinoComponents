@@ -12,8 +12,12 @@ namespace components {
 		this->_on_release = cbk;
 	}
 
+	bool TactileButton::isPressed() {
+		return (_trigger == TriggerOn::Low)? _input.isLow(): _input.isHigh();
+	}
+
 	void TactileButton::privateLoop() {	
-		bool pressedState = (_trigger == TriggerOn::Low)? _input.isLow(): _input.isHigh();
+		bool pressedState = this->isPressed();
 		if(pressedState != _pressed) {
 			if(pressedState == true) _on_press();
 			else if(pressedState == false) _on_release();

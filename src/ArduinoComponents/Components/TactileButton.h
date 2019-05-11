@@ -45,6 +45,8 @@ namespace components {
 
 		void onPress(VoidCallback cbk);
 		void onRelease(VoidCallback cbk);
+
+		bool isPressed();
 		
 	private:
 		DigitalInput _input;
