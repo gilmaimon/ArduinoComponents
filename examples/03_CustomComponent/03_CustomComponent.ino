@@ -6,7 +6,7 @@ class ButtonToggledLED : public Component {
 public:
 	ButtonToggledLED(PinNumber buttonPin, PinNumber ledPin) : 
 		Component(), 
-		led(ledPin, State::State_Low), 
+		led(ledPin, State::Low), 
 		button(buttonPin, TriggerOn::Low, InputPull::Up) {
 
 		// When we register a components as a child, it's loop is called every time our loop is called

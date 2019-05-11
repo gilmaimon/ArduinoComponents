@@ -24,14 +24,14 @@ Notes:
 namespace components {
 	class LED : public Component {
 	public:
-		LED(PinNumber pin, State startState = State_Low);
-		LED(DigitalOutput out, State startState = State_Low);
+		LED(PinNumber pin, State startState = State::Low);
+		LED(DigitalOutput out, State startState = State::Low);
 
 		void on();
 		void off();
 		void toggle();
 		void set(State state);
-		bool isOn() const {return _state == State_High; }
+		bool isOn() const {return _state == State::High; }
 
 	private:
 		DigitalOutput _output;

@@ -8,21 +8,21 @@ namespace components {
 
 	void LED::on() {
 		_output.high();
-		_state = State_High;
+		_state = State::High;
 	}
 
 	void LED::off() { 
 		_output.low();
-		_state = State_Low; 
+		_state = State::Low; 
 	}
 
 	void LED::toggle() {
-		if(_state == State_Low) on();
+		if(_state == State::Low) on();
 		else off();
 	}
 
 	void LED::set(State state) {
-		if(state == State_Low) off();
+		if(state == State::Low) off();
 		else on();
 	}
 };

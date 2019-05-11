@@ -12,9 +12,9 @@ namespace components {
 		const PinNumber _pin;
 	};
 
-	enum State : bool {
-		State_High = true,
-		State_Low = false
+	enum class State : bool {
+		High = true,
+		Low = false
 	};
 
 	enum class TriggerOn {

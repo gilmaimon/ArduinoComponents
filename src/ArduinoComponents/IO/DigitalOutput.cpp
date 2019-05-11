@@ -15,8 +15,8 @@ namespace components {
 	}
 
 	void DigitalOutput::write(State s) {
-		if(s == State_Low) low();
-		else if (s == State_High) high();
+		if(s == State::Low) low();
+		else if (s == State::High) high();
 	}
 
 	DigitalOutput::~DigitalOutput() {}

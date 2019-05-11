@@ -37,8 +37,6 @@ RegisterChild	KEYWORD2
 # Literals (LITERAL1)
 #######################################
 
-State_High	LITERAL1
-State_Low	LITERAL1
 High	LITERAL1
 Low	LITERAL1
 None	LITERAL1
